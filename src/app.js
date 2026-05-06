@@ -523,6 +523,7 @@
       .datum(classicalData())
       .attr("class", "curve predicted")
       .attr("d", chart.line)
+      .attr("marker-end", `url(#${chart.arrowId})`)
       .style("opacity", s.predicted ? 1 : 0);
 
     chart.plot.append("text")
@@ -563,6 +564,7 @@
       .datum(classicalData())
       .attr("class", "curve predicted")
       .attr("d", chart.line)
+      .attr("marker-end", `url(#${chart.arrowId})`)
       .style("opacity", 1);
 
     chart.plot.append("path")
@@ -755,10 +757,14 @@
   }
 
   function classicalData() {
-    return d3.range(0.06, 7.01, 0.045).map((x) => ({
+    const visibleCurve = d3.range(7, 0.43, -0.045).map((x) => ({
       x,
-      y: Math.min(1.04, 0.48 / (x + 0.09))
+      y: 0.48 / (x + 0.09)
     }));
+
+    return visibleCurve.concat([
+      { x: 0.34, y: 1.04 }
+    ]);
   }
 
   function animatePath(pathNode) {
