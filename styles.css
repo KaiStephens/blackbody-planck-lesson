@@ -1002,6 +1002,41 @@ a {
   line-height: 1.1;
 }
 
+.slide-deriveEnergy .problem-layout {
+  grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr);
+  gap: clamp(22px, 3.2vw, 48px);
+}
+
+.slide-deriveEnergy .problem-text {
+  font-size: clamp(0.92rem, 1.32vw, 1.26rem);
+}
+
+.slide-deriveEnergy .problem-text .given {
+  margin-top: 12px;
+  font-size: clamp(0.74rem, 0.96vw, 0.9rem);
+}
+
+.slide-deriveEnergy .workboard {
+  min-height: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.slide-deriveEnergy .work-step {
+  margin-bottom: 12px;
+  font-size: clamp(0.92rem, 1.48vw, 1.54rem);
+}
+
+.slide-deriveEnergy .fact-list {
+  margin-top: 14px;
+  gap: 10px;
+}
+
+.slide-deriveEnergy .fact-list li {
+  font-size: clamp(0.82rem, 1.08vw, 0.98rem);
+}
+
 .answer {
   color: var(--cyan);
 }
