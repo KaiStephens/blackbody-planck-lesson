@@ -139,7 +139,7 @@ a {
 
 .slide-quantization {
   grid-template-rows: auto minmax(0, 1fr);
-  padding: 16px 12px 18px;
+  padding: 22px 30px 24px;
 }
 
 .slide-quantization .slide-title {
@@ -147,7 +147,7 @@ a {
 }
 
 .slide-quantization .slide-title h1 {
-  font-size: clamp(2.15rem, 4.7vw, 4.5rem);
+  font-size: clamp(1.95rem, 4.1vw, 3.95rem);
 }
 
 .slide-quantization .prompt {
@@ -248,9 +248,9 @@ a {
 }
 
 .quant-scene {
-  width: min(1560px, 122vw);
+  width: min(1240px, 104vw);
   aspect-ratio: 2.38 / 1;
-  transform: translateY(4px) scale(1.2);
+  transform: translateY(2px) scale(1.04);
   transform-origin: center;
 }
 
