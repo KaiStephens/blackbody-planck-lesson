@@ -357,7 +357,7 @@
       id: "sample",
       eyebrow: "Sample problem",
       title: "One violet quantum.",
-      prompt: "Solve this live on the board. Reveal only the checkpoints.",
+      prompt: "",
       actions: [
         { label: "c = f lambda", action: "sample:step1", style: "primary" },
         { label: "f = c / lambda", action: "sample:step2", style: "yellow" },
