@@ -12,7 +12,7 @@
   --orange: #ff8c42;
   --green: #85d996;
   --radius: 8px;
-  --dock-height: 154px;
+  --dock-height: 118px;
   --sans: Avenir Next, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --serif: Georgia, Cambria, "Times New Roman", serif;
   --mono: SFMono-Regular, Consolas, "Liberation Mono", monospace;
@@ -77,21 +77,21 @@ a {
   grid-template-rows: auto 1fr;
   width: 100%;
   height: 100%;
-  padding: clamp(24px, 3.4vh, 38px) clamp(34px, 4.6vw, 64px) clamp(24px, 3.4vh, 36px);
+  padding: clamp(22px, 3.3vh, 36px) clamp(28px, 4.2vw, 54px) clamp(22px, 3.3vh, 34px);
   overflow: hidden;
 }
 
 .slide-title {
   position: relative;
   z-index: 2;
-  max-width: min(840px, 72vw);
+  max-width: min(860px, 92%);
 }
 
 .eyebrow {
   margin: 0 0 9px;
   color: var(--yellow);
   font-family: var(--mono);
-  font-size: clamp(0.74rem, 1.05vw, 0.96rem);
+  font-size: clamp(0.84rem, 1.05vw, 0.98rem);
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -99,7 +99,7 @@ a {
 .slide-title h1 {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(1.7rem, 4.05vw, 4.05rem);
+  font-size: clamp(1.95rem, 4.05vw, 4.05rem);
   font-weight: 850;
   line-height: 0.96;
   letter-spacing: 0;
@@ -115,7 +115,7 @@ a {
 }
 
 .slide-hook .slide-title {
-  max-width: min(610px, 54vw);
+  max-width: min(610px, 70%);
   transform: translate(-10px, 0);
 }
 
@@ -127,8 +127,8 @@ a {
 
 .split {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.72fr);
-  gap: clamp(24px, 4vw, 62px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.72fr);
+  gap: clamp(22px, 4vw, 54px);
   align-items: center;
 }
 
@@ -138,13 +138,12 @@ a {
 }
 
 .slide-quantization {
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   padding: 28px 42px 30px;
 }
 
 .slide-quantization .slide-title {
-  max-width: 100%;
-  visibility: hidden;
+  display: none;
 }
 
 .slide-quantization .slide-title h1 {
@@ -199,7 +198,7 @@ a {
   gap: 12px;
   align-items: baseline;
   color: var(--ink);
-  font-size: clamp(0.95rem, 1.35vw, 1.18rem);
+  font-size: clamp(1.08rem, 1.35vw, 1.28rem);
   line-height: 1.24;
 }
 
@@ -249,9 +248,9 @@ a {
 }
 
 .quant-scene {
-  width: min(1060px, 94vw);
+  width: min(980px, 100%);
   aspect-ratio: 2.38 / 1;
-  transform: translateY(4px) scale(0.94);
+  transform: translateY(0) scale(0.96);
   transform-origin: center;
 }
 
@@ -818,8 +817,8 @@ a {
 
 .bio-facts {
   display: grid;
-  gap: 14px;
-  font-size: clamp(1.08rem, 2.05vw, 1.95rem);
+  gap: 11px;
+  font-size: clamp(1.06rem, 1.8vw, 1.68rem);
   font-weight: 850;
   line-height: 1.1;
 }
@@ -828,7 +827,7 @@ a {
   display: block;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: clamp(0.78rem, 1.15vw, 0.98rem);
+  font-size: clamp(0.74rem, 1vw, 0.9rem);
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -975,7 +974,7 @@ a {
 
 .problem-text {
   color: var(--ink);
-  font-size: clamp(1.05rem, 1.65vw, 1.58rem);
+  font-size: clamp(1.14rem, 1.65vw, 1.62rem);
   font-weight: 780;
   line-height: 1.24;
 }
@@ -985,7 +984,7 @@ a {
   margin-top: 16px;
   color: var(--yellow);
   font-family: var(--mono);
-  font-size: clamp(0.86rem, 1.12vw, 1.02rem);
+  font-size: clamp(0.92rem, 1.12vw, 1.06rem);
 }
 
 .workboard {
@@ -999,7 +998,7 @@ a {
 .work-step {
   margin: 0 0 16px;
   color: var(--ink);
-  font-size: clamp(1rem, 1.85vw, 1.95rem);
+  font-size: clamp(1.1rem, 1.85vw, 1.95rem);
   line-height: 1.1;
 }
 
@@ -1038,6 +1037,24 @@ a {
   font-size: clamp(0.82rem, 1.08vw, 0.98rem);
 }
 
+.slide-hypothesis .formula {
+  margin: 8px 0;
+  font-size: clamp(1.45rem, 3.2vw, 3.35rem);
+}
+
+.slide-hypothesis .formula.small {
+  font-size: clamp(1.1rem, 2.25vw, 2.25rem);
+}
+
+.slide-hypothesis .fact-list {
+  margin-top: 8px;
+  gap: 6px;
+}
+
+.slide-hypothesis .fact-list li {
+  font-size: clamp(0.96rem, 1.08vw, 1.06rem);
+}
+
 .answer {
   color: var(--cyan);
 }
@@ -1063,13 +1080,26 @@ a {
 }
 
 .wrap-message {
-  max-width: 760px;
-  margin: 24px auto 0;
+  max-width: 620px;
+  margin: 8px auto 0;
   color: var(--ink);
-  font-size: clamp(1.18rem, 2.25vw, 2.25rem);
+  font-size: clamp(1.02rem, 1.5vw, 1.52rem);
   font-weight: 850;
   line-height: 1.12;
   text-align: center;
+}
+
+.slide-wrap .wrap-scene {
+  width: min(580px, 100%);
+  aspect-ratio: 5 / 2;
+}
+
+.slide-wrap .full-visual {
+  place-items: start center;
+}
+
+.slide-wrap .full-visual > div {
+  transform: translateY(-22px);
 }
 
 #inkCanvas {
@@ -1079,10 +1109,15 @@ a {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 #inkCanvas.active {
   pointer-events: auto;
+  touch-action: none;
   cursor: crosshair;
 }
 
@@ -1102,7 +1137,7 @@ a {
 .action-bar {
   position: absolute;
   right: clamp(16px, 2.2vw, 32px);
-  bottom: 112px;
+  bottom: 80px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -1114,7 +1149,7 @@ a {
 .icon-btn,
 .round,
 .video-shell a {
-  min-height: 38px;
+  min-height: 34px;
   border: 1px solid rgba(245, 251, 255, 0.2);
   border-radius: 999px;
   background: var(--panel);
@@ -1127,8 +1162,8 @@ a {
 }
 
 .action-btn {
-  padding: 9px 14px;
-  font-size: clamp(0.78rem, 1vw, 0.94rem);
+  padding: 7px 12px;
+  font-size: clamp(0.76rem, 0.96vw, 0.9rem);
 }
 
 .action-btn.primary {
@@ -1161,12 +1196,12 @@ a {
 .draw-tools {
   position: absolute;
   left: 50%;
-  bottom: 54px;
+  bottom: 36px;
   display: flex;
   align-items: center;
   gap: 7px;
   max-width: calc(100vw - 44px);
-  padding: 7px;
+  padding: 5px;
   border: 1px solid rgba(245, 251, 255, 0.1);
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.44);
@@ -1178,15 +1213,15 @@ a {
 .round {
   display: inline-grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   padding: 0;
 }
 
 .icon-btn svg,
 .round svg {
-  width: 19px;
-  height: 19px;
+  width: 17px;
+  height: 17px;
 }
 
 .icon-btn.text {
@@ -1204,8 +1239,8 @@ a {
 }
 
 .swatch {
-  width: 27px;
-  height: 27px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: 2px solid rgba(245, 251, 255, 0.22);
   border-radius: 999px;
@@ -1241,7 +1276,7 @@ a {
 .nav {
   position: absolute;
   left: 50%;
-  bottom: 8px;
+  bottom: 4px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1348,13 +1383,17 @@ a {
 }
 
 @media (max-height: 760px) {
+  :root {
+    --dock-height: 104px;
+  }
+
   .slide-shell {
-    padding-top: 22px;
-    padding-bottom: 22px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .slide-title h1 {
-    font-size: clamp(1.55rem, 3.35vw, 3.15rem);
+    font-size: clamp(1.8rem, 3.35vw, 3.25rem);
   }
 
   .slide-title .prompt {
@@ -1370,7 +1409,7 @@ a {
   .slide-observed .graph-wrap,
   .slide-prediction .graph-wrap,
   .slide-mismatch .graph-wrap {
-    height: 250px;
+    height: min(275px, 52vh);
   }
 
   .workboard {
@@ -1378,7 +1417,88 @@ a {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-height: 620px) {
+  :root {
+    --dock-height: 90px;
+  }
+
+  .slide-shell {
+    padding: 16px 24px 18px;
+  }
+
+  .eyebrow {
+    margin-bottom: 5px;
+  }
+
+  .slide-title h1 {
+    font-size: clamp(1.75rem, 3.2vw, 2.9rem);
+    line-height: 1;
+  }
+
+  .graph-wrap,
+  .slide-observed .graph-wrap,
+  .slide-prediction .graph-wrap,
+  .slide-mismatch .graph-wrap {
+    height: min(230px, 48vh);
+  }
+
+  .action-bar {
+    bottom: 62px;
+    gap: 6px;
+  }
+
+  .draw-tools {
+    bottom: 28px;
+  }
+
+  .nav {
+    bottom: 2px;
+  }
+
+  .dots {
+    display: none;
+  }
+
+  .draw-tools .icon-btn.text span {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  :root {
+    --dock-height: 96px;
+  }
+
+  .slide-shell {
+    padding: 18px 24px 20px;
+  }
+
+  .slide-title h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  .fact-list li,
+  .problem-text,
+  .work-step {
+    font-size: clamp(1rem, 2.2vw, 1.22rem);
+  }
+
+  .action-bar {
+    right: 12px;
+    bottom: 64px;
+    width: min(620px, 74vw);
+  }
+
+  .draw-tools {
+    bottom: 30px;
+  }
+
+  .dots {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) and (orientation: portrait) {
   :root {
     --dock-height: 260px;
   }

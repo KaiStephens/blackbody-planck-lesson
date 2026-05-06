@@ -15,7 +15,8 @@
     penMode: "pen",
     penColor: "#58c4dd",
     penSize: 9,
-    activeStroke: null
+    activeStroke: null,
+    activePointerId: null
   };
 
   const graphColors = ["#93a8b8", "#85d996", "#ff8c42", "#f4d35e", "#58c4dd"];
@@ -63,8 +64,8 @@
 
   function setupDeck() {
     window.Reveal.initialize({
-      width: 1280,
-      height: 620,
+      width: 960,
+      height: 540,
       margin: 0,
       controls: false,
       progress: false,
@@ -74,7 +75,7 @@
       backgroundTransition: "fade",
       slideNumber: false,
       minScale: 0.05,
-      maxScale: 2.2,
+      maxScale: 2.1,
       scrollActivationWidth: null,
       keyboard: true,
       touch: true
@@ -792,6 +793,13 @@
       drawToggle.classList.toggle("active", state.drawing);
       drawToggle.setAttribute("aria-pressed", String(state.drawing));
       drawToggle.querySelector("span").textContent = state.drawing ? "draw on" : "draw off";
+      if (window.Reveal && window.Reveal.configure) {
+        window.Reveal.configure({ touch: !state.drawing });
+      }
+      if (!state.drawing) {
+        state.activeStroke = null;
+        state.activePointerId = null;
+      }
     });
 
     penMode.addEventListener("click", () => {
@@ -833,11 +841,21 @@
       redrawInk();
     });
 
-    inkCanvas.addEventListener("pointerdown", startStroke);
-    inkCanvas.addEventListener("pointermove", continueStroke);
-    inkCanvas.addEventListener("pointerup", endStroke);
-    inkCanvas.addEventListener("pointercancel", endStroke);
-    inkCanvas.addEventListener("pointerleave", endStroke);
+    if (window.PointerEvent) {
+      inkCanvas.addEventListener("pointerdown", startPointerStroke);
+      inkCanvas.addEventListener("pointermove", continuePointerStroke);
+      inkCanvas.addEventListener("pointerup", endPointerStroke);
+      inkCanvas.addEventListener("pointercancel", endPointerStroke);
+      inkCanvas.addEventListener("lostpointercapture", endPointerStroke);
+    } else {
+      inkCanvas.addEventListener("touchstart", startTouchStroke, { passive: false });
+      inkCanvas.addEventListener("touchmove", continueTouchStroke, { passive: false });
+      inkCanvas.addEventListener("touchend", endTouchStroke, { passive: false });
+      inkCanvas.addEventListener("touchcancel", endTouchStroke, { passive: false });
+      inkCanvas.addEventListener("mousedown", startMouseStroke);
+      window.addEventListener("mousemove", continueMouseStroke);
+      window.addEventListener("mouseup", endMouseStroke);
+    }
   }
 
   function resizeCanvas() {
@@ -854,43 +872,120 @@
     }
   }
 
-  function startStroke(event) {
-    if (!state.drawing) return;
-    event.preventDefault();
-    inkCanvas.setPointerCapture(event.pointerId);
-    const point = pointerPoint(event);
+  function startPointerStroke(event) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    if (!beginStroke(event, event.pointerId, event)) return;
+    if (inkCanvas.setPointerCapture) {
+      try {
+        inkCanvas.setPointerCapture(event.pointerId);
+      } catch (error) {
+        // Some embedded browsers expose pointer events without reliable capture.
+      }
+    }
+  }
+
+  function continuePointerStroke(event) {
+    if (state.activePointerId !== event.pointerId) return;
+    const points = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+    continueStroke(event, points);
+  }
+
+  function endPointerStroke(event) {
+    if (state.activePointerId !== null && state.activePointerId !== event.pointerId) return;
+    if (inkCanvas.releasePointerCapture && inkCanvas.hasPointerCapture && inkCanvas.hasPointerCapture(event.pointerId)) {
+      try {
+        inkCanvas.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // Capture may already be gone after touch cancellation.
+      }
+    }
+    finishStroke(event);
+  }
+
+  function startTouchStroke(event) {
+    const touch = event.changedTouches && event.changedTouches[0];
+    if (!touch) return;
+    beginStroke(event, touch.identifier, touch);
+  }
+
+  function continueTouchStroke(event) {
+    if (state.activePointerId === null) return;
+    const touch = findTouch(event.touches, state.activePointerId) || findTouch(event.changedTouches, state.activePointerId);
+    if (!touch) return;
+    continueStroke(event, [touch]);
+  }
+
+  function endTouchStroke(event) {
+    if (state.activePointerId === null) return;
+    const touch = findTouch(event.changedTouches, state.activePointerId);
+    if (!touch && event.touches && event.touches.length) return;
+    finishStroke(event);
+  }
+
+  function startMouseStroke(event) {
+    if (event.button !== 0) return;
+    beginStroke(event, "mouse", event);
+  }
+
+  function continueMouseStroke(event) {
+    if (state.activePointerId !== "mouse") return;
+    continueStroke(event, [event]);
+  }
+
+  function endMouseStroke(event) {
+    if (state.activePointerId !== "mouse") return;
+    finishStroke(event);
+  }
+
+  function beginStroke(event, pointerId, input) {
+    if (!state.drawing || state.activeStroke) return false;
+    stopDrawingEvent(event);
+    const point = pointerPoint(input);
     state.activeStroke = {
       color: state.penColor,
       size: state.penMode === "eraser" ? state.penSize * 2.4 : state.penSize,
       mode: state.penMode,
       points: [point]
     };
+    state.activePointerId = pointerId;
+    return true;
   }
 
-  function continueStroke(event) {
+  function continueStroke(event, inputs) {
     if (!state.activeStroke) return;
-    event.preventDefault();
+    stopDrawingEvent(event);
     const stroke = state.activeStroke;
-    stroke.points.push(pointerPoint(event));
+    inputs.forEach((input) => stroke.points.push(pointerPoint(input)));
     redrawInk();
     drawStroke(stroke);
   }
 
-  function endStroke(event) {
+  function finishStroke(event) {
     if (!state.activeStroke) return;
-    event.preventDefault();
+    stopDrawingEvent(event);
     const id = currentSlideId();
     if (!state.ink[id]) state.ink[id] = [];
     state.ink[id].push(state.activeStroke);
     state.activeStroke = null;
+    state.activePointerId = null;
     redrawInk();
   }
 
-  function pointerPoint(event) {
+  function stopDrawingEvent(event) {
+    if (event.cancelable) event.preventDefault();
+    event.stopPropagation();
+  }
+
+  function findTouch(touches, identifier) {
+    if (!touches) return null;
+    return Array.from(touches).find((touch) => touch.identifier === identifier) || null;
+  }
+
+  function pointerPoint(input) {
     return {
-      x: event.clientX,
-      y: event.clientY,
-      pressure: event.pressure || 0.65
+      x: input.clientX,
+      y: input.clientY,
+      pressure: input.pressure || input.force || 0.65
     };
   }
 
