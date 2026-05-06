@@ -45,7 +45,7 @@
       id: "blackbody",
       eyebrow: "",
       title: "A blackbody absorbs everything.",
-      prompt: "Then, when hot, it is the most efficient possible emitter.",
+      prompt: "",
       actions: [
         { label: "absorb light", action: "blackbody:absorb", style: "primary" },
         { label: "emit radiation", action: "blackbody:emit", style: "yellow" }
@@ -132,7 +132,7 @@
       id: "heating",
       eyebrow: "Temperature",
       title: "Hotter shifts the spectrum.",
-      prompt: "The color change is the clue: the peak moves toward shorter wavelength.",
+      prompt: "",
       actions: [
         { label: "heat", action: "heating:next", style: "yellow" },
         { label: "more intensity", action: "heating:intensity", style: "primary" },
@@ -163,7 +163,7 @@
       id: "prediction",
       eyebrow: "Classical physics",
       title: "The prediction goes wrong.",
-      prompt: "Classical waves gave too much energy at short wavelengths.",
+      prompt: "",
       actions: [
         { label: "show prediction", action: "prediction:show", style: "yellow" },
         { label: "play explanation", action: "video:catastrophe", style: "primary" }
@@ -179,7 +179,7 @@
       id: "observed",
       eyebrow: "Observed data",
       title: "Each temperature has a peak.",
-      prompt: "The hotter curve is taller, and its peak is farther left.",
+      prompt: "",
       actions: [
         { label: "add curve", action: "observed:add", style: "primary" },
         { label: "peak shift", action: "observed:peaks", style: "yellow" },
@@ -203,7 +203,7 @@
       id: "planckBio",
       eyebrow: "Biography",
       title: "Max Planck made the small assumption.",
-      prompt: "A short biography beat before the physics turns.",
+      prompt: "",
       actions: [
         { label: "reveal facts", action: "bio:facts", style: "primary" }
       ],
@@ -283,7 +283,7 @@
       id: "quantization",
       eyebrow: "Quantization",
       title: "Ramp or stairs?",
-      prompt: "Planck's idea: energy changes in chunks, not every possible value.",
+      prompt: "",
       actions: [
         { label: "ramp", action: "quant:ramp", style: "primary" },
         { label: "stairs", action: "quant:stairs", style: "yellow" },
