@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blackbody Radiation and Planck Quiz</title>
+  <style>
+    :root {
+      --ink: #111;
+      --muted: #555;
+      --line: #bbb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #eee;
+      color: var(--ink);
+      font-family: Avenir Next, Arial, sans-serif;
+      font-size: 12pt;
+      line-height: 1.35;
+    }
+
+    main {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      padding: 0.55in 0.62in;
+      background: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 21pt;
+      line-height: 1.05;
+    }
+
+    .meta {
+      min-width: 2.8in;
+      color: var(--muted);
+      font-size: 11pt;
+    }
+
+    .meta div {
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+    }
+
+    .constants {
+      margin: 0 0 18px;
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      font-size: 10.5pt;
+    }
+
+    ol {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 0 0 18px;
+      break-inside: avoid;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px 18px;
+      margin-top: 8px;
+      padding-left: 2px;
+    }
+
+    .options span {
+      display: block;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      main {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        padding: 0.45in 0.55in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Blackbody Radiation and Planck's Quantum Hypothesis Quiz</h1>
+        <p>5 marks. Open book.</p>
+      </div>
+      <div class="meta">
+        <div>Name:</div>
+        <div>Date:</div>
+      </div>
+    </header>
+
+    <p class="constants">For calculations, use h = 6.63 x 10^-34 J*s and c = 3.00 x 10^8 m/s.</p>
+
+    <ol>
+      <li>
+        What is blackbody radiation?
+        <div class="options">
+          <span>a. Radiation emitted by an object because of its temperature</span>
+          <span>b. Radiation that exists only in the ultraviolet range</span>
+          <span>c. Light that has no frequency</span>
+          <span>d. Radiation emitted only by black-colored objects</span>
+        </div>
+      </li>
+
+      <li>
+        As the temperature of a hot object increases, what happens to the wavelength of maximum intensity?
+        <div class="options">
+          <span>a. It shifts to a shorter wavelength</span>
+          <span>b. It shifts to a longer wavelength</span>
+          <span>c. It stays exactly the same</span>
+          <span>d. It disappears completely</span>
+        </div>
+      </li>
+
+      <li>
+        What was the ultraviolet catastrophe?
+        <div class="options">
+          <span>a. The failure of classical physics at short wavelengths</span>
+          <span>b. The discovery that all light is ultraviolet</span>
+          <span>c. The observation that hot objects stop glowing</span>
+          <span>d. The idea that frequency and wavelength are unrelated</span>
+        </div>
+      </li>
+
+      <li>
+        What was Planck's main idea about emitted or absorbed energy?
+        <div class="options">
+          <span>a. Energy always changes continuously</span>
+          <span>b. Energy comes in small packets called quanta</span>
+          <span>c. Energy only exists in matter, not light</span>
+          <span>d. Energy is independent of frequency</span>
+        </div>
+      </li>
+
+      <li>
+        A quantum of violet light has wavelength lambda = 4.20 x 10^-7 m. What is the energy of one quantum?
+        <div class="options">
+          <span>a. 1.39 x 10^-48 J</span>
+          <span>b. 2.09 x 10^-40 J</span>
+          <span>c. 4.73 x 10^-19 J</span>
+          <span>d. 7.14 x 10^14 J</span>
+        </div>
+      </li>
+    </ol>
+  </main>
+</body>
+</html>
