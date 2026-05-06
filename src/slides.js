@@ -369,7 +369,8 @@
           <div class="problem-text">
             A quantum of violet light has wavelength:
             <span class="given" data-katex="\lambda = 4.20 \times 10^{-7}\ {\rm m}"></span>
-            <span class="given">Find frequency and energy.</span>
+            <span class="given">a) Find frequency.</span>
+            <span class="given">b) Find energy.</span>
           </div>
           <div class="workboard">
             <div class="work-step hidden-step" id="sample1" data-katex="c = f\lambda"></div>

@@ -1141,6 +1141,13 @@ a {
   font-size: clamp(0.94rem, 1.55vw, 1.55rem);
 }
 
+.slide-sample .workboard {
+  min-height: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
 .slide-sample .answer .work-step {
   margin-bottom: 7px;
   font-size: clamp(0.88rem, 1.35vw, 1.32rem);
