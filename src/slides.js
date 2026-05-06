@@ -222,7 +222,7 @@
       id: "deriveEnergy",
       eyebrow: "Derivation",
       title: "Deriving an equation for energy.",
-      prompt: "Planck's move: tie the size of one energy packet to the wave's frequency.",
+      prompt: "",
       actions: [
         { label: "frequency", action: "derive:frequency", style: "primary" },
         { label: "constant h", action: "derive:constant", style: "yellow" },
