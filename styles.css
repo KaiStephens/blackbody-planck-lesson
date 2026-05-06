@@ -144,6 +144,7 @@ a {
 
 .slide-quantization .slide-title {
   max-width: 100%;
+  visibility: hidden;
 }
 
 .slide-quantization .slide-title h1 {
