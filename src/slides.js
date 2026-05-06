@@ -386,7 +386,7 @@
       id: "wrap",
       eyebrow: "Close",
       title: "A tiny assumption opened quantum physics.",
-      prompt: "Classical continuity gives way to discrete packets.",
+      prompt: "",
       actions: [
         { label: "collapse to packets", action: "wrap:packets", style: "yellow" }
       ],
