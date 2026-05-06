@@ -250,7 +250,7 @@
       id: "hypothesis",
       eyebrow: "Planck's hypothesis",
       title: "Energy comes in packets.",
-      prompt: "Not any amount. Only allowed bundles.",
+      prompt: "",
       actions: [
         { label: "continuous wave", action: "hypothesis:wave", style: "primary" },
         { label: "quantize", action: "hypothesis:packets", style: "yellow" },
