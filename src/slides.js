@@ -219,34 +219,6 @@
         </div>`
     },
     {
-      id: "deriveEnergy",
-      eyebrow: "Derivation",
-      title: "Deriving an equation for energy.",
-      prompt: "",
-      actions: [
-        { label: "frequency", action: "derive:frequency", style: "primary" },
-        { label: "constant h", action: "derive:constant", style: "yellow" },
-        { label: "E = hf", action: "derive:equation", style: "red" }
-      ],
-      html: String.raw`
-        <div class="visual problem-layout">
-          <div class="problem-text">
-            Hotter objects emit higher-frequency light.
-            <span class="given">Planck assumed energy is not continuous.</span>
-            <span class="given">One allowed packet has an energy set by frequency.</span>
-          </div>
-          <div class="workboard">
-            <div class="work-step hidden-step" id="derive1" data-katex="E \propto f"></div>
-            <div class="work-step hidden-step" id="derive2" data-katex="h = 6.626 \times 10^{-34}\ {\rm J\,s}"></div>
-            <div class="work-step hidden-step" id="derive3" data-katex="E = hf"></div>
-            <div class="fact-list">
-              <li class="hidden-step" id="derive4">higher frequency means a larger quantum</li>
-              <li class="hidden-step" id="derive5">h converts frequency into energy</li>
-            </div>
-          </div>
-        </div>`
-    },
-    {
       id: "hypothesis",
       eyebrow: "Planck's hypothesis",
       title: "Energy comes in packets.",
@@ -276,6 +248,34 @@
               <li class="hidden-step" id="defH">h = Planck's constant</li>
               <li class="hidden-step" id="defF">f = frequency</li>
             </ul>
+          </div>
+        </div>`
+    },
+    {
+      id: "deriveEnergy",
+      eyebrow: "Derivation",
+      title: "Deriving an equation for energy.",
+      prompt: "",
+      actions: [
+        { label: "frequency", action: "derive:frequency", style: "primary" },
+        { label: "constant h", action: "derive:constant", style: "yellow" },
+        { label: "E = hf", action: "derive:equation", style: "red" }
+      ],
+      html: String.raw`
+        <div class="visual problem-layout">
+          <div class="problem-text">
+            Hotter objects emit higher-frequency light.
+            <span class="given">Planck assumed energy is not continuous.</span>
+            <span class="given">One allowed packet has an energy set by frequency.</span>
+          </div>
+          <div class="workboard">
+            <div class="work-step hidden-step" id="derive1" data-katex="E \propto f"></div>
+            <div class="work-step hidden-step" id="derive2" data-katex="h = 6.626 \times 10^{-34}\ {\rm J\,s}"></div>
+            <div class="work-step hidden-step" id="derive3" data-katex="E = hf"></div>
+            <div class="fact-list">
+              <li class="hidden-step" id="derive4">higher frequency means a larger quantum</li>
+              <li class="hidden-step" id="derive5">h converts frequency into energy</li>
+            </div>
           </div>
         </div>`
     },
